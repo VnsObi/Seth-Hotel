@@ -1,26 +1,34 @@
 import { MapPin, Phone, Mail, Navigation } from "lucide-react";
 
-export function ContactSection() {
+interface ContactSectionProps {
+  onBookNow: () => void;
+}
+
+export function ContactSection({ onBookNow }: ContactSectionProps) {
   const handleBookNow = () => {
-    alert('Booking form will be displayed here. Direct booking saves you money!');
+    onBookNow();
   };
 
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">Location & Contact</h2>
+          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+            Location & Contact
+          </h2>
           <div className="w-24 h-1 bg-[#d4af37] mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Find us in the heart of Okwe, Asaba. We're here to help!
+            Find us in the heart of the city. We're here to help!
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-[#1e3a5f] mb-6">Get in Touch</h3>
-            
+            <h3 className="text-2xl font-bold text-[#1e3a5f] mb-6">
+              Get in Touch
+            </h3>
+
             <div className="space-y-6">
               {/* Address */}
               <div className="flex items-start gap-4 bg-gray-50 p-6 rounded-lg">
@@ -29,10 +37,9 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1e3a5f] mb-2">Address</h4>
-                  <p className="text-gray-700">No. 2 Anam Cresent, Oduke Road</p>
+                  <p className="text-gray-700">Vnsis Demo Hotel and Suites</p>
                   <p className="text-gray-700">Okwe, Asaba</p>
                   <p className="text-gray-700">Delta State, Nigeria</p>
-                  <p className="text-sm text-gray-500 mt-2">Plus Code: 5P9H+3V Asaba</p>
                 </div>
               </div>
 
@@ -43,11 +50,11 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1e3a5f] mb-2">Phone</h4>
-                  <a 
-                    href="tel:08167904869" 
+                  <a
+                    href="tel:+2348031234567"
                     className="text-[#d4af37] hover:text-[#c19d2f] font-semibold text-lg transition-colors"
                   >
-                    0816 790 4869
+                    +234 803 123 4567
                   </a>
                   <p className="text-sm text-gray-600 mt-1">Available 24/7</p>
                 </div>
@@ -55,7 +62,7 @@ export function ContactSection() {
 
               {/* Directions Button */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=5P9H+3V+Asaba"
+                href="https://www.google.com/maps"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-[#1e3a5f] text-white py-4 px-6 rounded-lg hover:bg-[#152a45] transition-colors font-semibold shadow-md hover:shadow-lg"
@@ -82,14 +89,20 @@ export function ContactSection() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Check-in:</span>
-                  <span className="font-semibold text-[#d4af37]">14:00 (2:00 PM)</span>
+                  <span className="font-semibold text-[#d4af37]">
+                    14:00 (2:00 PM)
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Check-out:</span>
-                  <span className="font-semibold text-[#d4af37]">11:00 (11:00 AM)</span>
+                  <span className="font-semibold text-[#d4af37]">
+                    11:00 (11:00 AM)
+                  </span>
                 </div>
                 <div className="pt-2 border-t border-white/20">
-                  <p className="text-sm text-white/90">24-hour front desk service available</p>
+                  <p className="text-sm text-white/90">
+                    24-hour front desk service available
+                  </p>
                 </div>
               </div>
             </div>
@@ -105,29 +118,41 @@ export function ContactSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Seth Hotel Location"
+              title="Hotel Location"
             ></iframe>
           </div>
         </div>
 
         {/* Neighborhood Info */}
         <div className="mt-12 bg-[#f5f5f0] p-8 rounded-lg">
-          <h3 className="text-2xl font-bold text-[#1e3a5f] mb-4 text-center">Why Choose Our Location?</h3>
+          <h3 className="text-2xl font-bold text-[#1e3a5f] mb-4 text-center">
+            Why Choose Our Location?
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
               <div className="text-4xl mb-2">🏢</div>
-              <h4 className="font-bold text-[#1e3a5f] mb-2">Business District</h4>
-              <p className="text-gray-600 text-sm">Close to major business centers in Asaba</p>
+              <h4 className="font-bold text-[#1e3a5f] mb-2">
+                Business District
+              </h4>
+              <p className="text-gray-600 text-sm">
+                Close to major business centers in the city
+              </p>
             </div>
             <div>
               <div className="text-4xl mb-2">🛍️</div>
-              <h4 className="font-bold text-[#1e3a5f] mb-2">Shopping & Dining</h4>
-              <p className="text-gray-600 text-sm">Convenient access to local attractions</p>
+              <h4 className="font-bold text-[#1e3a5f] mb-2">
+                Shopping & Dining
+              </h4>
+              <p className="text-gray-600 text-sm">
+                Convenient access to local attractions
+              </p>
             </div>
             <div>
               <div className="text-4xl mb-2">✈️</div>
               <h4 className="font-bold text-[#1e3a5f] mb-2">Airport Access</h4>
-              <p className="text-gray-600 text-sm">Easy transfers with our shuttle service</p>
+              <p className="text-gray-600 text-sm">
+                Easy transfers with our shuttle service
+              </p>
             </div>
           </div>
         </div>

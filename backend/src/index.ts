@@ -1,0 +1,31 @@
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import bookingRoutes from "./routes/bookingRoutes";
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(
+  cors({
+    origin: "*", // Allow all origins for development
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
+
+app.use("/api/bookings", bookingRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Vnsis Central Booking Engine API is running");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

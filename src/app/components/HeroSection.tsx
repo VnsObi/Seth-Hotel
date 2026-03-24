@@ -1,22 +1,35 @@
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { Calendar, CheckCircle, Coffee, ParkingCircle, XCircle } from "lucide-react";
+import {
+  Calendar,
+  CheckCircle,
+  Coffee,
+  ParkingCircle,
+  XCircle,
+} from "lucide-react";
 import { useState } from "react";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onBookNow: () => void;
+}
+
+export function HeroSection({ onBookNow }: HeroSectionProps) {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
 
   const handleCheckAvailability = () => {
-    alert(`Booking from ${checkIn || 'Not set'} to ${checkOut || 'Not set'}. Direct booking saves you ₦9,000!`);
+    onBookNow();
   };
 
   return (
-    <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center">
+    <section
+      id="home"
+      className="relative h-screen min-h-[600px] flex items-center justify-center"
+    >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1734184451176-d3ca5bb6b64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGV4dGVyaW9yJTIwTmlnZXJpYXxlbnwxfHx8fDE3Njk1OTkxMzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-          alt="Seth Hotel Exterior"
+          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGV4dGVyaW9yfGVufDF8fHx8MTc2OTU5OTEzMXww&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Hotel Exterior"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
@@ -25,10 +38,11 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-          Experience Comfort & Class in Asaba
+          Experience Comfort & Class
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Located in the heart of Okwe. Perfect for business and leisure travelers.
+          Located in the heart of the city. Perfect for business and leisure
+          travelers.
         </p>
 
         {/* Direct Booking Savings Banner */}
@@ -50,7 +64,9 @@ export function HeroSection() {
           </div>
           <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
             <XCircle className="w-5 h-5 text-[#1e3a5f]" />
-            <span className="font-semibold text-[#1e3a5f]">Free Cancellation</span>
+            <span className="font-semibold text-[#1e3a5f]">
+              Free Cancellation
+            </span>
           </div>
         </div>
 
@@ -58,7 +74,9 @@ export function HeroSection() {
         <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl p-6 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Check-in</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Check-in
+              </label>
               <div className="relative">
                 <input
                   type="date"
@@ -72,7 +90,9 @@ export function HeroSection() {
             </div>
 
             <div className="relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Check-out</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Check-out
+              </label>
               <div className="relative">
                 <input
                   type="date"

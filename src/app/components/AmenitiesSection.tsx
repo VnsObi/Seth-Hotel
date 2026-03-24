@@ -1,58 +1,73 @@
-import { Wifi, Plane, ParkingCircle, Dumbbell, Waves, UtensilsCrossed, Shirt, Coffee } from "lucide-react";
+import {
+  Wifi,
+  Plane,
+  ParkingCircle,
+  Dumbbell,
+  Waves,
+  UtensilsCrossed,
+  Shirt,
+  Coffee,
+} from "lucide-react";
 
 const amenities = [
   {
     icon: Waves,
     title: "Swimming Pool",
-    description: "Outdoor pool for relaxation"
+    description: "Outdoor pool for relaxation",
   },
   {
     icon: Dumbbell,
     title: "Fitness Center",
-    description: "Modern gym equipment"
+    description: "Modern gym equipment",
   },
   {
     icon: Wifi,
     title: "High-speed Wi-Fi",
-    description: "Complimentary throughout hotel"
+    description: "Complimentary throughout hotel",
   },
   {
     icon: UtensilsCrossed,
     title: "Restaurant & Bar",
-    description: "Royal Kitchen - Open 24 hours"
+    description: "Royal Kitchen - Open 24 hours",
   },
   {
     icon: Plane,
     title: "Airport Shuttle",
-    description: "Convenient transportation"
+    description: "Convenient transportation",
   },
   {
     icon: ParkingCircle,
     title: "Free Parking",
-    description: "Secure parking available"
+    description: "Secure parking available",
   },
   {
     icon: Shirt,
     title: "Laundry Service",
-    description: "Professional cleaning"
+    description: "Professional cleaning",
   },
   {
     icon: Coffee,
     title: "Free Breakfast",
-    description: "Start your day right"
-  }
+    description: "Start your day right",
+  },
 ];
 
-export function AmenitiesSection() {
+interface AmenitiesSectionProps {
+  onBookNow: () => void;
+}
+
+export function AmenitiesSection({ onBookNow }: AmenitiesSectionProps) {
   const handleBookNow = () => {
-    alert('Booking form will be displayed here. Direct booking saves you money!');
+    onBookNow();
   };
 
   return (
     <section id="amenities" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">Amenities & Facilities</h2>
+          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+            Amenities & Facilities
+          </h2>
           <div className="w-24 h-1 bg-[#d4af37] mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Everything you need for a comfortable and memorable stay
@@ -71,7 +86,9 @@ export function AmenitiesSection() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1e3a5f] text-white rounded-full mb-4">
                   <IconComponent className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">{amenity.title}</h3>
+                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">
+                  {amenity.title}
+                </h3>
                 <p className="text-gray-600 text-sm">{amenity.description}</p>
               </div>
             );
@@ -101,11 +118,11 @@ export function AmenitiesSection() {
           <p className="text-2xl text-gray-700 mb-6">
             Ready to experience luxury at the best rates?
           </p>
-          <button 
+          <button
             onClick={handleBookNow}
             className="bg-[#d4af37] text-white font-bold py-5 px-12 rounded-md hover:bg-[#c19d2f] transition-all transform hover:scale-105 shadow-xl text-xl"
           >
-            BOOK DIRECT & SAVE
+            BOOK DIRECT & SAVE ₦15,000
           </button>
         </div>
       </div>

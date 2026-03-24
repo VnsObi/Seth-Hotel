@@ -6,7 +6,9 @@ export function DiningSection() {
     <section id="dining" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">Dining Experience</h2>
+          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+            Dining Experience
+          </h2>
           <div className="w-24 h-1 bg-[#d4af37] mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Savor exceptional cuisine at our on-site restaurant
@@ -19,14 +21,15 @@ export function DiningSection() {
             <div className="inline-block bg-[#d4af37] text-white px-4 py-2 rounded-full mb-4">
               <span className="font-semibold">On-site Dining</span>
             </div>
-            
+
             <h3 className="text-3xl font-bold text-[#1e3a5f] mb-4">
               Royal Kitchen and Bar
             </h3>
 
             <p className="text-gray-700 mb-6 leading-relaxed text-lg">
-              Experience authentic Nigerian cuisine and international favorites at Royal Kitchen and Bar. 
-              Our talented chefs use the freshest ingredients to create memorable dining experiences for our guests.
+              Experience authentic Nigerian cuisine and international favorites.
+              Our talented chefs use the freshest ingredients to create
+              memorable dining experiences for our guests.
             </p>
 
             {/* Features */}
@@ -36,8 +39,12 @@ export function DiningSection() {
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1e3a5f] mb-1">Open 24 Hours</h4>
-                  <p className="text-gray-600 text-sm">Enjoy delicious meals any time of day or night</p>
+                  <h4 className="font-bold text-[#1e3a5f] mb-1">
+                    Open 24 Hours
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Enjoy delicious meals any time of day or night
+                  </p>
                 </div>
               </div>
 
@@ -46,8 +53,12 @@ export function DiningSection() {
                   <ChefHat className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1e3a5f] mb-1">Soup Kitchen</h4>
-                  <p className="text-gray-600 text-sm">Authentic Nigerian soups and traditional dishes</p>
+                  <h4 className="font-bold text-[#1e3a5f] mb-1">
+                    Soup Kitchen
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Authentic local and traditional dishes
+                  </p>
                 </div>
               </div>
 
@@ -56,15 +67,22 @@ export function DiningSection() {
                   <UtensilsCrossed className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1e3a5f] mb-1">Full Bar Service</h4>
-                  <p className="text-gray-600 text-sm">Wide selection of beverages and cocktails</p>
+                  <h4 className="font-bold text-[#1e3a5f] mb-1">
+                    Full Bar Service
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Wide selection of beverages and cocktails
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-[#f5f5f0] p-6 rounded-lg border-l-4 border-[#d4af37]">
               <p className="text-gray-700">
-                <span className="font-semibold text-[#1e3a5f]">Room Service Available:</span> Enjoy our delicious menu from the comfort of your room
+                <span className="font-semibold text-[#1e3a5f]">
+                  Room Service Available:
+                </span>{" "}
+                Enjoy our delicious menu from the comfort of your room
               </p>
             </div>
           </div>

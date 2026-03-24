@@ -1,4 +1,4 @@
-# Seth Hotel Website Structure
+# Vnsis Demo Hotel Structure
 
 ## Running the code
 

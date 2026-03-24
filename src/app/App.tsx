@@ -1,25 +1,29 @@
-import { Header } from "@/app/components/Header";
-import { HeroSection } from "@/app/components/HeroSection";
-import { AboutSection } from "@/app/components/AboutSection";
-import { RoomsSection } from "@/app/components/RoomsSection";
-import { AmenitiesSection } from "@/app/components/AmenitiesSection";
-import { DiningSection } from "@/app/components/DiningSection";
-import { ContactSection } from "@/app/components/ContactSection";
-import { Footer } from "@/app/components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { AdminDashboard } from "./pages/AdminDashboard";
+import { AdminBookings } from "./pages/admin/AdminBookings";
+import { AdminRooms } from "./pages/admin/AdminRooms";
+import { AdminGuests } from "./pages/admin/AdminGuests";
+import { AdminSettings } from "./pages/admin/AdminSettings";
+import { Login } from "./pages/Login";
+import AdminLayout from "./layouts/AdminLayout";
+import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <RoomsSection />
-        <AmenitiesSection />
-        <DiningSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Toaster />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="bookings" element={<AdminBookings />} />
+          <Route path="rooms" element={<AdminRooms />} />
+          <Route path="guests" element={<AdminGuests />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
+        <Route path="/admin/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

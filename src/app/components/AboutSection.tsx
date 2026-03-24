@@ -1,16 +1,22 @@
 import { MapPin, Award, Plane } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 
-export function AboutSection() {
+interface AboutSectionProps {
+  onBookNow: () => void;
+}
+
+export function AboutSection({ onBookNow }: AboutSectionProps) {
   const handleBookNow = () => {
-    alert('Booking form will be displayed here. Direct booking saves you money!');
+    onBookNow();
   };
 
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">About Seth Hotel</h2>
+          <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+            About Vnsis Demo Hotel
+          </h2>
           <div className="w-24 h-1 bg-[#d4af37] mx-auto"></div>
         </div>
 
@@ -19,7 +25,7 @@ export function AboutSection() {
           <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-xl">
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1731080647266-85cf1bc27162?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHN3aW1taW5nJTIwcG9vbCUyMGx1eHVyeXxlbnwxfHx8fDE3Njk1MzI1ODR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Seth Hotel Pool"
+              alt="Hotel Pool"
               className="w-full h-full object-cover"
             />
           </div>
@@ -29,19 +35,28 @@ export function AboutSection() {
             <div className="flex items-start gap-3 mb-6 bg-[#f5f5f0] p-4 rounded-lg border-l-4 border-[#d4af37]">
               <Award className="w-6 h-6 text-[#d4af37] flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">Prime Location in Okwe</h3>
+                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">
+                  Prime Location
+                </h3>
                 <p className="text-gray-700">
-                  Seth Hotel is perfectly situated in the Okwe neighborhood, offering convenient access to local attractions and business centers.
+                  Vnsis Demo Hotel is perfectly situated in Asaba, offering
+                  convenient access to local attractions and business centers.
                 </p>
               </div>
             </div>
 
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Located at <span className="font-semibold">No. 2 Anam Cresent, Oduke Road, Okwe, Asaba</span>, Seth Hotel combines modern comfort with traditional Nigerian hospitality. Whether you're in Asaba for business or leisure, Seth Hotel offers the perfect blend of comfort and convenience.
+              Located at{" "}
+              <span className="font-semibold">the heart of Okwe, Asaba</span>,
+              Vnsis Demo Hotel combines modern comfort with traditional
+              hospitality. Whether you're in the city for business or leisure,
+              Vnsis Demo Hotel offers the perfect blend of comfort and
+              convenience.
             </p>
 
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Our range of world-class amenities ensures every guest enjoys a memorable stay at the best direct booking rates in Asaba.
+              Our range of world-class amenities ensures every guest enjoys a
+              memorable stay at the best direct booking rates.
             </p>
 
             {/* Key Features */}
@@ -70,7 +85,7 @@ export function AboutSection() {
             </div>
 
             {/* CTA Button */}
-            <button 
+            <button
               onClick={handleBookNow}
               className="w-full bg-[#d4af37] text-white font-bold py-4 px-8 rounded-md hover:bg-[#c19d2f] transition-all transform hover:scale-[1.02] shadow-lg text-lg"
             >

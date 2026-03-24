@@ -37,11 +37,6 @@ const items = [
     icon: Calendar,
   },
   {
-    title: "Rooms",
-    url: "/admin/rooms",
-    icon: BedDouble,
-  },
-  {
     title: "Guests",
     url: "/admin/guests",
     icon: Users,

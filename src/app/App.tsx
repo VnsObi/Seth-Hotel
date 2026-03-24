@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminBookings } from "./pages/admin/AdminBookings";
-import { AdminRooms } from "./pages/admin/AdminRooms";
 import { AdminGuests } from "./pages/admin/AdminGuests";
 import { AdminSettings } from "./pages/admin/AdminSettings";
 import { Login } from "./pages/Login";
@@ -18,7 +17,6 @@ export default function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path="bookings" element={<AdminBookings />} />
-          <Route path="rooms" element={<AdminRooms />} />
           <Route path="guests" element={<AdminGuests />} />
           <Route path="settings" element={<AdminSettings />} />
         </Route>

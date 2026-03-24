@@ -26,24 +26,24 @@ async function main() {
     },
   ];
 
-  for (const room of rooms) {
+  for (const roomData of rooms) {
     const existingRoom = await prisma.room.findFirst({
-      where: { name: room.name },
+      where: { name: roomData.name },
     });
 
     if (!existingRoom) {
       await prisma.room.create({
-        data: room,
+        data: roomData,
       });
-      console.log(`Created room: ${room.name}`);
+      console.log(`Created room: ${roomData.name}`);
     } else {
-      console.log(`Room already exists: ${room.name}`);
+      console.log(`Room already exists: ${roomData.name}`);
     }
   }
 
   // Also seed an Admin user
   const adminEmail = "admin@vnsis.com";
-  const existingAdmin = await prisma.admin.findUnique({
+  let existingAdmin = await prisma.admin.findUnique({
     where: { email: adminEmail },
   });
 
@@ -56,6 +56,71 @@ async function main() {
       },
     });
     console.log("Created admin user");
+  } else {
+    console.log("Admin user already exists");
+  }
+
+  // Create some sample bookings
+  const bookingCount = await prisma.booking.count();
+  if (bookingCount === 0) {
+    console.log("Seeding sample bookings...");
+
+    const checkIn = new Date();
+    checkIn.setDate(checkIn.getDate() + 1);
+    const checkOut = new Date(checkIn);
+    checkOut.setDate(checkOut.getDate() + 3);
+
+    await prisma.booking.create({
+      data: {
+        guestName: "John Doe",
+        guestEmail: "john@example.com",
+        guestPhone: "+2347064910016",
+        roomType: "Classic Apartment",
+        checkInDate: checkIn,
+        checkOutDate: checkOut,
+        numberOfGuests: 2,
+        totalPrice: 105000,
+        status: "CONFIRMED",
+      },
+    });
+
+    await prisma.booking.create({
+      data: {
+        guestName: "Jane Smith",
+        guestEmail: "jane@example.com",
+        guestPhone: "+2348012345678",
+        roomType: "Deluxe Suite",
+        checkInDate: checkIn,
+        checkOutDate: checkOut,
+        numberOfGuests: 1,
+        totalPrice: 150000,
+        status: "PENDING",
+      },
+    });
+
+    // Add another booking for John Doe to test aggregation
+    const prevCheckIn = new Date();
+    prevCheckIn.setMonth(prevCheckIn.getMonth() - 1);
+    const prevCheckOut = new Date(prevCheckIn);
+    prevCheckOut.setDate(prevCheckOut.getDate() + 5);
+
+    await prisma.booking.create({
+      data: {
+        guestName: "John Doe",
+        guestEmail: "john@example.com",
+        guestPhone: "+2347064910016",
+        roomType: "Executive Penthouse",
+        checkInDate: prevCheckIn,
+        checkOutDate: prevCheckOut,
+        numberOfGuests: 2,
+        totalPrice: 425000,
+        status: "Checked Out",
+      },
+    });
+
+    console.log("Created sample bookings");
+  } else {
+    console.log("Bookings already exist, skipping sample data");
   }
 }
 

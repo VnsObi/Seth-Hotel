@@ -1,16 +1,10 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateBookingStatus = exports.getBookings = exports.createBooking = void 0;
-const prisma_1 = __importDefault(require("../prisma"));
-const createBooking = async (req, res) => {
-    const { name, email, phone, checkIn, checkOut, guests, roomType, notifyWhatsApp, } = req.body;
+import prisma from "../prisma.js";
+export const createBooking = async (req, res) => {
+    const { name, email, phone, checkIn, checkOut, guests, roomType } = req.body;
     try {
         // 1. Find the Room by type (or name)
         // We try to match the incoming string to our seeded room names
-        const room = await prisma_1.default.room.findFirst({
+        const room = await prisma.room.findFirst({
             where: {
                 OR: [{ name: roomType }, { type: roomType }],
             },
@@ -38,7 +32,7 @@ const createBooking = async (req, res) => {
         // 3. Calculate Total Price
         const totalPrice = room.price * nights;
         // 4. Create Booking
-        const booking = await prisma_1.default.booking.create({
+        const booking = await prisma.booking.create({
             data: {
                 guestName: name,
                 guestEmail: email,
@@ -59,10 +53,9 @@ const createBooking = async (req, res) => {
         res.status(500).json({ error: "Failed to create booking" });
     }
 };
-exports.createBooking = createBooking;
-const getBookings = async (req, res) => {
+export const getBookings = async (_req, res) => {
     try {
-        const bookings = await prisma_1.default.booking.findMany({
+        const bookings = await prisma.booking.findMany({
             orderBy: { createdAt: "desc" },
         });
         res.json(bookings);
@@ -72,16 +65,19 @@ const getBookings = async (req, res) => {
         res.status(500).json({ error: "Failed to fetch bookings" });
     }
 };
-exports.getBookings = getBookings;
-const updateBookingStatus = async (req, res) => {
+export const updateBookingStatus = async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
+    if (!id) {
+        res.status(400).json({ error: "Booking ID is required" });
+        return;
+    }
     if (!["PENDING", "CONFIRMED", "CANCELLED", "COMPLETED"].includes(status)) {
         res.status(400).json({ error: "Invalid status value" });
         return;
     }
     try {
-        const booking = await prisma_1.default.booking.update({
+        const booking = await prisma.booking.update({
             where: { id },
             data: { status },
         });
@@ -92,5 +88,4 @@ const updateBookingStatus = async (req, res) => {
         res.status(500).json({ error: "Failed to update booking status" });
     }
 };
-exports.updateBookingStatus = updateBookingStatus;
 //# sourceMappingURL=bookingController.js.map

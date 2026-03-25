@@ -48,7 +48,7 @@ export function Footer({ onBookNow }: FooterProps) {
           {/* About */}
           <div>
             <h3 className="text-2xl font-bold text-[#d4af37] mb-4">
-              Seth Hotel
+              Sochiee Apartments
             </h3>
             <p className="text-white/80 mb-4">
               Experience comfort and class in the heart of Asaba. Your home away
@@ -118,7 +118,7 @@ export function Footer({ onBookNow }: FooterProps) {
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-[#d4af37] flex-shrink-0 mt-1" />
                 <span className="text-white/80 text-sm">
-                  123 Seth Avenue, Asaba
+                  123 Sochiee Avenue, Asaba
                 </span>
               </li>
               <li className="flex items-center gap-2">
@@ -152,7 +152,7 @@ export function Footer({ onBookNow }: FooterProps) {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm">
-            © 2026 Seth Hotel and Suites. Powered by{" "}
+            © 2026 Sochiee Apartments and Suites. Powered by{" "}
             <span className="text-[#d4af37] font-semibold">
               Vnsis Technologies
             </span>

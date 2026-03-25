@@ -15,7 +15,7 @@ export function AboutSection({ onBookNow }: AboutSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
-            About Seth Hotel
+            About Sochiee Apartments
           </h2>
           <div className="w-24 h-1 bg-[#d4af37] mx-auto"></div>
         </div>
@@ -39,7 +39,7 @@ export function AboutSection({ onBookNow }: AboutSectionProps) {
                   Prime Location
                 </h3>
                 <p className="text-gray-700">
-                  Seth Hotel is perfectly situated in Asaba, offering
+                  Sochiee Apartments is perfectly situated in Asaba, offering
                   convenient access to local attractions and business centers.
                 </p>
               </div>
@@ -48,9 +48,9 @@ export function AboutSection({ onBookNow }: AboutSectionProps) {
             <p className="text-gray-700 mb-6 leading-relaxed">
               Located at{" "}
               <span className="font-semibold">the heart of Asaba</span>,
-              Seth Hotel combines modern comfort with traditional
+              Sochiee Apartments combines modern comfort with traditional
               hospitality. Whether you're in the city for business or leisure,
-              Seth Hotel offers the perfect blend of comfort and
+              Sochiee Apartments offers the perfect blend of comfort and
               convenience.
             </p>
 

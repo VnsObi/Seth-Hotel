@@ -59,7 +59,7 @@ export function AdminSidebar() {
     <Sidebar>
       <SidebarHeader className="p-4 border-b border-sidebar-border">
         <h2 className="text-xl font-bold text-sidebar-foreground">
-          Seth Hotel
+          Sochiee Apartments
         </h2>
         <span className="text-xs text-sidebar-foreground/70">Admin Panel</span>
       </SidebarHeader>

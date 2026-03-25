@@ -144,7 +144,7 @@ export function BookingModal({
               Booking Confirmed!
             </DialogTitle>
             <DialogDescription className="text-center">
-              Thank you for choosing Seth Hotel.
+              Thank you for choosing Sochiee Apartments.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center justify-center p-6 space-y-4">

@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import { fileURLToPath } from "url";
 import cors from "cors";
 import bookingRoutes from "./routes/bookingRoutes.js";
 
@@ -30,7 +31,8 @@ app.get("/", (_req, res) => {
 export default app;
 
 // Only start the server if running locally (not in Vercel)
-if (process.env.NODE_ENV !== "production" && require?.main === module) {
+const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+if (process.env.NODE_ENV !== "production" && isMainModule) {
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });

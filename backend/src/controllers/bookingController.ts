@@ -77,7 +77,7 @@ export const getBookings = async (_req: Request, res: Response) => {
 };
 
 export const updateBookingStatus = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { id } = req.params as { id: string };
   const { status } = req.body;
 
   if (!id) {

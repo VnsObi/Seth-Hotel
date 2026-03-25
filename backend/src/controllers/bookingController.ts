@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../prisma";
+import prisma from "../prisma.js";
 
 export const createBooking = async (req: Request, res: Response) => {
   const { name, email, phone, checkIn, checkOut, guests, roomType } = req.body;

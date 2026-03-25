@@ -3,7 +3,7 @@ import {
   createBooking,
   getBookings,
   updateBookingStatus,
-} from "../controllers/bookingController";
+} from "../controllers/bookingController.js";
 
 const router = Router();
 

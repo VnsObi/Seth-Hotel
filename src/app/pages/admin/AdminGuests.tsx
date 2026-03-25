@@ -47,7 +47,7 @@ export function AdminGuests() {
   useEffect(() => {
     const fetchGuests = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:3000/api/bookings");
+        const response = await fetch("/api/bookings");
         if (!response.ok) throw new Error("Failed to fetch bookings");
 
         const bookings: Booking[] = await response.json();

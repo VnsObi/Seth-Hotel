@@ -87,7 +87,7 @@ export function BookingModal({
     console.log("Submitting booking:", values);
     try {
       // Simulate network delay for UX then send to actual backend
-      const response = await fetch("http://127.0.0.1:3000/api/bookings", {
+      const response = await fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

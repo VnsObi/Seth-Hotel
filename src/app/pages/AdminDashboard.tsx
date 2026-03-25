@@ -55,7 +55,7 @@ export function AdminDashboard() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://127.0.0.1:3000/api/bookings");
+      const response = await fetch("/api/bookings");
       if (!response.ok) {
         throw new Error(
           `Failed to fetch bookings: ${response.status} ${response.statusText}`,
@@ -80,14 +80,11 @@ export function AdminDashboard() {
 
   const handleStatusUpdate = async (id: string, newStatus: string) => {
     try {
-      const response = await fetch(
-        `http://127.0.0.1:3000/api/bookings/${id}/status`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: newStatus }),
-        },
-      );
+      const response = await fetch(`/api/bookings/${id}/status`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: newStatus }),
+      });
 
       if (response.ok) {
         setBookings(

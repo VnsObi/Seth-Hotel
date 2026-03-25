@@ -26,6 +26,12 @@ app.get("/", (req, res) => {
   res.send("Vnsis Central Booking Engine API is running");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the app for Vercel Serverless Functions
+export default app;
+
+// Only start the server if running locally (not in Vercel)
+if (process.env.NODE_ENV !== "production" && require?.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}

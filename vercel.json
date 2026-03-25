@@ -1,5 +1,5 @@
 {
-  "buildCommand": "vite build && prisma generate --schema=backend/prisma/schema.prisma",
+  "buildCommand": "vite build && prisma generate",
   "rewrites": [
     {
       "source": "/api/(.*)",

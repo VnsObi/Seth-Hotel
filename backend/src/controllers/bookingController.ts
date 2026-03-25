@@ -10,7 +10,6 @@ export const createBooking = async (req: Request, res: Response) => {
     checkOut,
     guests,
     roomType,
-    notifyWhatsApp,
   } = req.body;
 
   try {
@@ -73,7 +72,7 @@ export const createBooking = async (req: Request, res: Response) => {
   }
 };
 
-export const getBookings = async (req: Request, res: Response) => {
+export const getBookings = async (_req: Request, res: Response) => {
   try {
     const bookings = await prisma.booking.findMany({
       orderBy: { createdAt: "desc" },
@@ -88,6 +87,11 @@ export const getBookings = async (req: Request, res: Response) => {
 export const updateBookingStatus = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { status } = req.body;
+
+  if (!id) {
+    res.status(400).json({ error: "Booking ID is required" });
+    return;
+  }
 
   if (!["PENDING", "CONFIRMED", "CANCELLED", "COMPLETED"].includes(status)) {
     res.status(400).json({ error: "Invalid status value" });

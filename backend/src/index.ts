@@ -15,14 +15,14 @@ app.use(
 );
 app.use(express.json());
 
-app.use((req, res, next) => {
+app.use((req, _res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
 
 app.use("/api/bookings", bookingRoutes);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Vnsis Central Booking Engine API is running");
 });
 

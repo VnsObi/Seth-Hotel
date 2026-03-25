@@ -37,8 +37,8 @@ export function ContactSection({ onBookNow }: ContactSectionProps) {
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1e3a5f] mb-2">Address</h4>
-                  <p className="text-gray-700">Vnsis Demo Hotel and Suites</p>
-                  <p className="text-gray-700">Okwe, Asaba</p>
+                  <p className="text-gray-700">Seth Hotel and Suites</p>
+                  <p className="text-gray-700">Asaba</p>
                   <p className="text-gray-700">Delta State, Nigeria</p>
                 </div>
               </div>

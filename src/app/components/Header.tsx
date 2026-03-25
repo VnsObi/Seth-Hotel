@@ -27,7 +27,7 @@ export function Header({ onBookNow }: HeaderProps) {
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-[#1e3a5f]">
-              Vnsis Demo Hotel
+              Seth Hotel
             </h1>
             <span className="ml-2 text-sm text-gray-600">and Suites</span>
           </div>

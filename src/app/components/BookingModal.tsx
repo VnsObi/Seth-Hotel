@@ -115,7 +115,7 @@ export function BookingModal({
       }
 
       setIsSuccess(true);
-      toast.success("Booking Request Sent to Vnsis Central System!", {
+      toast.success("Booking Request Sent!", {
         description:
           "Your request has been logged and forwarded to the hotel administration.",
       });
@@ -124,7 +124,7 @@ export function BookingModal({
       toast.error("Booking Submission Failed", {
         description:
           error.message ||
-          "Could not connect to Vnsis Central System. Please try again.",
+          "Could not connect to Booking System. Please try again.",
       });
     }
   }
@@ -144,7 +144,7 @@ export function BookingModal({
               Booking Confirmed!
             </DialogTitle>
             <DialogDescription className="text-center">
-              Thank you for choosing Vnsis Demo Hotel.
+              Thank you for choosing Seth Hotel.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center justify-center p-6 space-y-4">
@@ -153,8 +153,7 @@ export function BookingModal({
             </div>
             <div className="text-center space-y-2">
               <p className="text-gray-900 font-semibold">
-                Your reservation request has been processed by the Vnsis Central
-                Booking Engine.
+                Your reservation request has been processed successfully.
               </p>
               <p className="text-sm text-gray-600">
                 A confirmation has been sent to your email and WhatsApp (if
@@ -357,7 +356,7 @@ export function BookingModal({
               type="submit"
               className="w-full bg-[#d4af37] hover:bg-[#c19d2f] text-white font-bold py-6 text-lg mt-6"
             >
-              Confirm Booking - Pay on Arrival
+              Confirm Booking
             </Button>
             <p className="text-center text-xs text-gray-500 mt-2">
               No credit card required for booking. Free cancellation up to 24

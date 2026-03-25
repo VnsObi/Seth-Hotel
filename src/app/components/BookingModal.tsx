@@ -94,9 +94,23 @@ export function BookingModal({
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
+        // Try to parse JSON, but handle HTML (404/500) gracefully
+        const contentType = response.headers.get("content-type");
+        let errorMessage;
+
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+          const errorData = await response.json();
+          errorMessage = errorData.error;
+        } else {
+          errorMessage = await response.text();
+          // Truncate HTML responses to avoid massive toasts
+          if (errorMessage.length > 100)
+            errorMessage = `Server Error (${response.status})`;
+        }
+
         throw new Error(
-          errorData.error || `Failed to create booking: ${response.statusText}`,
+          errorMessage ||
+            `Failed to create booking: ${response.status} ${response.statusText}`,
         );
       }
 

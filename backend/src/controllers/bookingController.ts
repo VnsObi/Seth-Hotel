@@ -2,15 +2,7 @@ import { Request, Response } from "express";
 import prisma from "../prisma";
 
 export const createBooking = async (req: Request, res: Response) => {
-  const {
-    name,
-    email,
-    phone,
-    checkIn,
-    checkOut,
-    guests,
-    roomType,
-  } = req.body;
+  const { name, email, phone, checkIn, checkOut, guests, roomType } = req.body;
 
   try {
     // 1. Find the Room by type (or name)
